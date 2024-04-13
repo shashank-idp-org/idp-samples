@@ -1,15 +1,15 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: react-app
-  title: Create a react app
-  description: A template to create a new react app
+  name: github-repo
+  title: Create a repo in github
+  description: A template to create a new repo in github
   tags:
     - nextjs
     - react
     - javascript
 spec:
-  owner: name@company.io
+  owner: shashank.dwivedi@harness.io
   type: service
   parameters:
     - title: Next.js app details
@@ -62,17 +62,11 @@ spec:
           ui:field: HarnessAuthToken
   steps:
     - id: trigger
-      name: Creating your react app
+      name: Creating your repo in Github
       action: trigger:harness-custom-pipeline
       input:
-        url: "https://app.harness.io/ng/account/vpCkHKsDSxK9_KYfjCTMKA/home/orgs/QE_Team/projects/Quality_Assurence/pipelines/IDP_New_NextJS_app/pipeline-studio/?storeType=INLINE"
+        url: "https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/create_github_repo/pipeline-studio/?storeType=REMOTE"
         inputset:
-          project_name: ${{ parameters.project_name }}
-          gitlab_repo: ${{ parameters.gitlab_repo }}
-          cloud_provider: ${{ parameters.provider }}
-          db: ${{ parameters.db }}
-          cache: ${{ parameters.cache }}
-        apikey: ${{ parameters.token }}
 
   output:
     links:
