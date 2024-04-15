@@ -12,41 +12,25 @@ spec:
   owner: shashank.dwivedi@harness.io
   type: service
   parameters:
-    - title: Next.js app details
+    - title: Github repo creation
       required:
-        - project_name
-        - gitlab_repo
+        - github_repo
+        - github_org
       properties:
-        project_name:
-          title: Name of your new app
+        
+        github_org:
+          title: Name of the Github Organization
           type: string
-          description: Unique name of the app
-        gitlab_repo:
+          description: This will be the name of Repository on GitLab
+        github_repo:
           title: Name of the GitLab repository
           type: string
           description: This will be the name of Repository on GitLab
-        isPublish:
-          title: Do you wish to publish the artifact the internal registry?
-          type: boolean
-    - title: Service Infrastructure Details
+        
+    - title: Owner details
       required:
         - owner
       properties:
-        cloud_provider:
-          title: Choose a cloud provider for Deployment
-          type: string
-          enum: ["GCP", "AWS"]
-          default: GCP
-        db:
-          title: Choose a Database Type for the Service
-          type: string
-          enum: ["None", "MySQL", "Postgres", "MongoDB"]
-          default: None
-        cache:
-          title: Choose a caching system for the Service
-          type: string
-          enum: ["None", "Redis"]
-          default: None
         owner:
           title: Choose an Owner for the Service
           type: string
@@ -67,8 +51,8 @@ spec:
       input:
         url: "https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/create_github_repo/pipeline-studio/?storeType=REMOTE"
         inputset:
-          project_name: ${{ parameters.project_name }}
-          gitlab_repo: ${{ parameters.gitlab_repo }}
+          github_org_name: ${{ parameters.github_org }}
+          github_repo_name: ${{ parameters.github_repo }}
         apikey: ${{ parameters.token }}
 
   output:
