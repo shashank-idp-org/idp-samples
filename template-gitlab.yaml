@@ -23,7 +23,7 @@ spec:
           type: string
           description: This will be the name of Repository on GitLab
         github_repo:
-          title: Name of the GitLab repository
+          title: Name of the GitHub repository
           type: string
           description: This will be the name of Repository on GitLab
         
