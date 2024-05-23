@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: github-repo
   title: Condition pipeline execution
-  description: A template to create a new repo in github
+  description: A demo to run the pipeline based on conditional skips powered by IDP templates
   tags:
     - nextjs
     - react
