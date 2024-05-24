@@ -16,17 +16,25 @@ spec:
       required:
         - resource_type
         - environment_type
-      properties:
-        
+      properties:    
         resource_type:
           title: Name of the resource that you want to provision
           type: string
           description: Name of the resource that you want to provision
+          enum:
+            - s3
+            - vpc
+            - sns
+            - glue
+            - sqs
         environment_type:
           title: Name of the environment where you want to provision a resource
           type: string
           description: Name of the environment where you want to provision a resource
-        
+          enum:
+            - dev
+            - staging
+            - prod
     - title: Owner details
       required:
         - owner
