@@ -4,6 +4,8 @@ metadata:
   name: github-repo
   title: Condition pipeline execution
   description: A demo to run the pipeline based on conditional skips powered by IDP templates
+  annotations:
+    backstage.io/techdocs-ref: dir:.
   tags:
     - nextjs
     - react
