@@ -80,10 +80,23 @@ parameters:
               - Region C
     steps:
       - id: trigger
-        name: Provision Infrastructure
+        name: Only Non Production Environments
+        if: ${{ parameters.environment_type === "staging" and parameters.environment_type === "dev" }}
         action: trigger:harness-custom-pipeline
         input:
+          message: Non Production Environments
           url: https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/provision_infrastructure/pipeline-studio?storeType=INLINE
+          inputset:
+            resource_type: ${{ parameters.resource_type }}
+            environment_type: ${{ parameters.environment_type }}
+          apikey: ${{ parameters.token }}
+      - id: trigger
+        name: Only Production Environments
+        if: ${{ parameters.environment_type === "prod" }}
+        action: trigger:harness-custom-pipeline
+        input:
+          message: Production Environments
+          url: https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/Production_Infrastructure_Provisioning/pipeline-studio?storeType=INLINE
           inputset:
             resource_type: ${{ parameters.resource_type }}
             environment_type: ${{ parameters.environment_type }}
@@ -92,3 +105,5 @@ parameters:
       links:
         - title: Pipeline Details
           url: ${{ steps.trigger.output.PipelineUrl }}
+
+  
