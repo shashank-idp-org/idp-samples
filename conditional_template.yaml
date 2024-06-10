@@ -1,7 +1,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: infrastructure_provisioning
+  name: infrastructure_provisioning_v1
   title: infraprovisioning_conditional_template
   description: A demo to run the pipeline based on conditional skips powered by IDP templates
   annotations:
@@ -44,15 +44,12 @@ spec:
                 - sqs
           dependencies:
             resource_type:
-              oneOf:
+              anyOf:
                 - properties:
                     resource_type:
                       enum:
                         - s3
                         - vpc
-                        - sns
-                        - glue
-                        - sqs
                     Operationtype:
                       $ref: "#/myregion/operation"     
       myregion:
