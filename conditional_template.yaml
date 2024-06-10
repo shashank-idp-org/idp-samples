@@ -50,6 +50,9 @@ spec:
                       enum:
                         - s3
                         - vpc
+                        - sns
+                        - glue
+                        - sqs
                     Operationtype:
                       $ref: "#/myregion/operation"     
       myregion:
