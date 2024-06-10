@@ -21,13 +21,6 @@ parameters:
       - environment_type
       - owner
     properties:
-      owner:
-        title: Choose an Owner for the Service
-        type: string
-        ui:field: OwnerPicker
-        ui:options:
-          allowedKinds:
-            - Group
       token:
         title: Harness Token
         type: string
