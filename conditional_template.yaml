@@ -75,7 +75,7 @@ spec:
         message: Non Production Environments
         url: https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/provision_infrastructure/pipeline-studio?storeType=INLINE
         inputset:
-          resource_type: ${{ parameters.infra_component }}
+          resource_type: ${{ parameters.infra_component.resource_type }}
           environment_type: ${{ parameters.environment_type }}
         apikey: ${{ parameters.token }}
     - id: triggerprod
@@ -86,7 +86,7 @@ spec:
         message: Production Environments
         url: https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/Production_Infrastructure_Provisioning/pipeline-studio?storeType=INLINE
         inputset:
-          resource_type: ${{ parameters.infra_component }}
+          resource_type: ${{ parameters.infra_component.resource_type }}
           environment_type: ${{ parameters.environment_type }}
         apikey: ${{ parameters.token }}
       output:
