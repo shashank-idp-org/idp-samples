@@ -6,10 +6,6 @@ metadata:
   description: A demo to run the pipeline based on conditional skips powered by IDP templates
   annotations:
     backstage.io/techdocs-ref: dir:.
-  tags:
-    - nextjs
-    - react
-    - javascript
 spec:
   owner: shashank.dwivedi@harness.io
   type: service
@@ -57,7 +53,7 @@ parameters:
           inputset:
             resource_type: ${{ parameters.resource_type }}
           apikey: ${{ parameters.token }}
-      - id: trigger
+      - id: triggernew
         name: Only Production Environments
         if: ${{ parameters.resource_type === "glue" }}
         action: trigger:harness-custom-pipeline
