@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: infrastructure_provisioning
-  title: asdf
+  title: infraprovisioning_conditional_template
   description: A demo to run the pipeline based on conditional skips powered by IDP templates
   annotations:
     backstage.io/techdocs-ref: dir:.
