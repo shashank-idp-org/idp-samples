@@ -10,8 +10,11 @@ spec:
   owner: shashank.dwivedi@harness.io
   type: service
   parameters:
-    - title: Infrastrucuture 
+    - title: infrastructure_provisioning
       type: object
+      required:
+        - environment_type
+        - owner
       properties:
         token:
           title: Harness Token
@@ -41,32 +44,58 @@ spec:
                     resource_type:
                       enum:
                         - s3
-                        - vpc    
-    steps:
-      - id: trigger
-        name: Only Non Production Environments
-        if: ${{ parameters.resource_type === "s3" or parameters.resource_type === "vpc" }}
-        action: trigger:harness-custom-pipeline
-        input:
-          message: Non Production Environments
-          url: https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/provision_infrastructure/pipeline-studio?storeType=INLINE
-          inputset:
-            resource_type: ${{ parameters.resource_type }}
-          apikey: ${{ parameters.token }}
-      - id: triggernew
-        name: Only Production Environments
-        if: ${{ parameters.resource_type === "glue" }}
-        action: trigger:harness-custom-pipeline
-        input:
-          message: Production Environments
-          url: https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/Production_Infrastructure_Provisioning/pipeline-studio?storeType=INLINE
-          inputset:
-            resource_type: ${{ parameters.resource_type }}
-          apikey: ${{ parameters.token }}
-    output:
-      links:
-        - title: Pipeline Details
-          url: ${{ steps.trigger.output.PipelineUrl }}# Edit the template parameters below to see how they will render in the scaffolder form UI
+                        - vpc
+                    Operationtype:
+                      $ref: "#/myregion/operation"
+        environment_type:
+          title: environment_type
+          type: string
+          description: Name of the environment where you want to provision a resource
+          type: string
+          enum:
+            - dev
+            - staging
+            - prod         
+      myregion:
+        operation:
+          title: region
+          type: object
+          properties:
+            ChooseRegion:
+              type: string
+              enum:
+                - Region A
+                - Region B
+                - Region C
+  steps:
+    - id: trigger
+      name: Only Non Production Environments
+      if: ${{ parameters.environment_type === "staging" or parameters.environment_type === "dev" }}
+      action: trigger:harness-custom-pipeline
+      input:
+        message: Non Production Environments
+        url: https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/provision_infrastructure/pipeline-studio?storeType=INLINE
+        inputset:
+          resource_type: ${{ parameters.resource_type }}
+          environment_type: ${{ parameters.environment_type }}
+        apikey: ${{ parameters.token }}
+    - id: trigger
+      name: Only Production Environments
+      if: ${{ parameters.environment_type === "prod" }}
+      action: trigger:harness-custom-pipeline
+      input:
+        message: Production Environments
+        url: https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/Production_Infrastructure_Provisioning/pipeline-studio?storeType=INLINE
+        inputset:
+          resource_type: ${{ parameters.resource_type }}
+          environment_type: ${{ parameters.environment_type }}
+        apikey: ${{ parameters.token }}
+      output:
+        links:
+          - title: Pipeline Details
+            url: ${{ steps.trigger.output.PipelineUrl }}# Edit the template parameters below to see how they will render in the scaffolder form UI
+
+
 
 
 
