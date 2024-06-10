@@ -78,7 +78,7 @@ spec:
           resource_type: ${{ parameters.resource_type }}
           environment_type: ${{ parameters.environment_type }}
         apikey: ${{ parameters.token }}
-    - id: trigger
+    - id: triggernew
       name: Only Production Environments
       if: ${{ parameters.environment_type === "prod" }}
       action: trigger:harness-custom-pipeline
