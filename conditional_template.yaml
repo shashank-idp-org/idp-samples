@@ -17,9 +17,6 @@ spec:
 parameters:
   - title: infrastructure_provisioning
     type: object
-    required:
-      - environment_type
-      - owner
     properties:
       token:
         title: Harness Token
