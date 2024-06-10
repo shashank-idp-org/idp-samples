@@ -67,17 +67,17 @@ parameters:
                       - vpc
                   Operationtype:
                     $ref: "#/myregion/operation"
-          myregion:
-            operation:
-              title: region
-              type: object
-              properties:
-                ChooseRegion:
-                  type: string
-                  enum:
-                    - Region A
-                    - Region B
-                    - Region C
+    myregion:
+      operation:
+        title: region
+        type: object
+        properties:
+          ChooseRegion:
+            type: string
+            enum:
+              - Region A
+              - Region B
+              - Region C
     steps:
       - id: trigger
         name: Only Non Production Environments
