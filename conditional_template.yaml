@@ -13,6 +13,7 @@ spec:
     - title: infrastructure_component
       type: object
       required:
+        - resource_type
         - environment_type
       properties:
         token:
@@ -34,8 +35,6 @@ spec:
                 - sns
                 - glue
                 - sqs
-          required:
-            - resource_type
           dependencies:
             resource_type:
               oneOf:
