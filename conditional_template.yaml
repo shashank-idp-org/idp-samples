@@ -15,7 +15,7 @@ spec:
   owner: shashank.dwivedi@harness.io
   type: service
 parameters:
-  - title: Infrastructure Provisioning
+  - title: infrastructure_provisioning
     type: object
     required:
       - environment_type
