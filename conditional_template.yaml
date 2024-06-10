@@ -72,7 +72,7 @@ parameters:
               - Region B
               - Region C
     steps:
-      - id: trigger
+      - id: triggerdev
         name: Only Non Production Environments
         if: ${{ parameters.environment_type === "staging" or parameters.environment_type === "dev" }}
         action: trigger:harness-custom-pipeline
@@ -83,7 +83,7 @@ parameters:
             resource_type: ${{ parameters.resource_type }}
             environment_type: ${{ parameters.environment_type }}
           apikey: ${{ parameters.token }}
-      - id: trigger
+      - id: triggerprod
         name: Only Production Environments
         if: ${{ parameters.environment_type === "prod" }}
         action: trigger:harness-custom-pipeline
