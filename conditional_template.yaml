@@ -13,7 +13,6 @@ spec:
     - title: infrastructure_component
       type: object
       required:
-        - resource_type
         - environment_type
       properties:
         token:
@@ -21,6 +20,14 @@ spec:
           type: string
           ui:widget: password
           ui:field: HarnessAuthToken
+        environment_type:
+          title: environment_type
+          description: Name of the environment where you want to provision a resource
+          type: string
+          enum:
+            - dev
+            - staging
+            - prod    
         infracomponent:
           title: infra component
           type: object
@@ -44,15 +51,7 @@ spec:
                         - s3
                         - vpc
                     Operationtype:
-                      $ref: "#/myregion/operation"
-        environment_type:
-          title: environment_type
-          description: Name of the environment where you want to provision a resource
-          type: string
-          enum:
-            - dev
-            - staging
-            - prod         
+                      $ref: "#/myregion/operation"     
       myregion:
         operation:
           title: region
