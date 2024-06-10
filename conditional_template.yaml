@@ -74,7 +74,7 @@ parameters:
     steps:
       - id: trigger
         name: Only Non Production Environments
-        if: ${{ parameters.environment_type === "staging" and parameters.environment_type === "dev" }}
+        if: ${{ parameters.environment_type === "staging" or parameters.environment_type === "dev" }}
         action: trigger:harness-custom-pipeline
         input:
           message: Non Production Environments
