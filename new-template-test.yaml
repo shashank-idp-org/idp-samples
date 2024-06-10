@@ -9,39 +9,39 @@ metadata:
 spec:
   owner: shashank.dwivedi@harness.io
   type: service
-parameters:
-  - title: Infrastrucuture 
-    type: object
-    properties:
-      token:
-        title: Harness Token
-        type: string
-        ui:widget: password
-        ui:field: HarnessAuthToken
-      infracomponent:
-        title: infra component
-        type: object
-        properties:
-          resource_type:
-            title: resource_type
-            type: string
-            description: Name of the resource that you want to provision
-            enum:
-              - s3
-              - vpc
-              - sns
-              - glue
-              - sqs
-        required:
-          - resource_type
-        dependencies:
-          resource_type:
-            oneOf:
-              - properties:
-                  resource_type:
-                    enum:
-                      - s3
-                      - vpc    
+  parameters:
+    - title: Infrastrucuture 
+      type: object
+      properties:
+        token:
+          title: Harness Token
+          type: string
+          ui:widget: password
+          ui:field: HarnessAuthToken
+        infracomponent:
+          title: infra component
+          type: object
+          properties:
+            resource_type:
+              title: resource_type
+              type: string
+              description: Name of the resource that you want to provision
+              enum:
+                - s3
+                - vpc
+                - sns
+                - glue
+                - sqs
+          required:
+            - resource_type
+          dependencies:
+            resource_type:
+              oneOf:
+                - properties:
+                    resource_type:
+                      enum:
+                        - s3
+                        - vpc    
     steps:
       - id: trigger
         name: Only Non Production Environments
