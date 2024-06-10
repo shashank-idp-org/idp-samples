@@ -26,14 +26,6 @@ parameters:
         type: string
         ui:widget: password
         ui:field: HarnessAuthToken
-      environment_type:
-        title: environment_type
-        type: string
-        description: Name of the environment where you want to provision a resource
-        enum:
-          - dev
-          - staging
-          - prod
       infracomponent:
         title: infra component
         type: object
@@ -60,6 +52,15 @@ parameters:
                       - vpc
                   Operationtype:
                     $ref: "#/myregion/operation"
+      environment_type:
+        title: environment_type
+        type: string
+        description: Name of the environment where you want to provision a resource
+        type: string
+        enum:
+          - dev
+          - staging
+          - prod         
     myregion:
       operation:
         title: region
@@ -72,7 +73,7 @@ parameters:
               - Region B
               - Region C
     steps:
-      - id: triggerdev
+      - id: trigger
         name: Only Non Production Environments
         if: ${{ parameters.environment_type === "staging" or parameters.environment_type === "dev" }}
         action: trigger:harness-custom-pipeline
@@ -83,7 +84,7 @@ parameters:
             resource_type: ${{ parameters.resource_type }}
             environment_type: ${{ parameters.environment_type }}
           apikey: ${{ parameters.token }}
-      - id: triggerprod
+      - id: trigger
         name: Only Production Environments
         if: ${{ parameters.environment_type === "prod" }}
         action: trigger:harness-custom-pipeline
@@ -97,6 +98,8 @@ parameters:
     output:
       links:
         - title: Pipeline Details
-          url: ${{ steps.trigger.output.PipelineUrl }}
+          url: ${{ steps.trigger.output.PipelineUrl }}# Edit the template parameters below to see how they will render in the scaffolder form UI
+
+
 
   
