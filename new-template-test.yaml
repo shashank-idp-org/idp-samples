@@ -1,0 +1,77 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: infrastructure_provisioning
+  title: asdf
+  description: A demo to run the pipeline based on conditional skips powered by IDP templates
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - nextjs
+    - react
+    - javascript
+spec:
+  owner: shashank.dwivedi@harness.io
+  type: service
+parameters:
+  - title: Infrastrucuture 
+    type: object
+    properties:
+      token:
+        title: Harness Token
+        type: string
+        ui:widget: password
+        ui:field: HarnessAuthToken
+      infracomponent:
+        title: infra component
+        type: object
+        properties:
+          resource_type:
+            title: resource_type
+            type: string
+            description: Name of the resource that you want to provision
+            enum:
+              - s3
+              - vpc
+              - sns
+              - glue
+              - sqs
+        required:
+          - resource_type
+        dependencies:
+          resource_type:
+            oneOf:
+              - properties:
+                  resource_type:
+                    enum:
+                      - s3
+                      - vpc    
+    steps:
+      - id: trigger
+        name: Only Non Production Environments
+        if: ${{ parameters.resource_type === "s3" or parameters.resource_type === "vpc" }}
+        action: trigger:harness-custom-pipeline
+        input:
+          message: Non Production Environments
+          url: https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/provision_infrastructure/pipeline-studio?storeType=INLINE
+          inputset:
+            resource_type: ${{ parameters.resource_type }}
+          apikey: ${{ parameters.token }}
+      - id: trigger
+        name: Only Production Environments
+        if: ${{ parameters.resource_type === "glue" }}
+        action: trigger:harness-custom-pipeline
+        input:
+          message: Production Environments
+          url: https://qa.harness.io/ng/account/px7xd_BFRCi-pfWPYXVjvw/module/idp-admin/orgs/shashank/projects/shashank_idp_test/pipelines/Production_Infrastructure_Provisioning/pipeline-studio?storeType=INLINE
+          inputset:
+            resource_type: ${{ parameters.resource_type }}
+          apikey: ${{ parameters.token }}
+    output:
+      links:
+        - title: Pipeline Details
+          url: ${{ steps.trigger.output.PipelineUrl }}# Edit the template parameters below to see how they will render in the scaffolder form UI
+
+
+
+  
