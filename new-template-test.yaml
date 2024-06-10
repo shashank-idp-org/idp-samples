@@ -49,7 +49,6 @@ spec:
                       $ref: "#/myregion/operation"
         environment_type:
           title: environment_type
-          type: string
           description: Name of the environment where you want to provision a resource
           type: string
           enum:
