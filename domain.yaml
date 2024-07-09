@@ -4,5 +4,5 @@ metadata:
   name: capital-topic
   description: This is a domain design
 spec:
-  owner: David
+  owner: team-capital
   lifecycle: production
