@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: pricing-system-topic
+  description: Everything related to pricing systems
+spec:
+  owner: team-pricing
+  domain: desl-topic
