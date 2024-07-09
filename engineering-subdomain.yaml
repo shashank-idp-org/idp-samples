@@ -6,5 +6,5 @@ metadata:
 spec:
   owner: Shashank
   lifecycle: production
-  subdomainOf: capital-domain
+  subdomainOf: capital-domain-v1
   
