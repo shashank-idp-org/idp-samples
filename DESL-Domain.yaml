@@ -1,1 +1,9 @@
-f
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: desl-topic
+  description: Everything related to desl domain
+spec:
+  owner: team-desl
+  lifecycle: production
+
