@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: Capital Topic Domain
+  description: Capital Domain
+spec:
+  owner: David
+  hasParts:
+    - system: Commercial
+    - system: Development
+    - system: Engineering
+    - system: HSE
