@@ -4,6 +4,6 @@ metadata:
   name: capital-topic-v1
   description: This is a v1 domain design
 spec:
-  owner: David
+  owner: TestA
   system: Engineering
   
