@@ -17,4 +17,6 @@ spec:
   type: openapi
   lifecycle: experimental
   owner: team-quoteservice-api
+  definition:
+    text: API details
   
