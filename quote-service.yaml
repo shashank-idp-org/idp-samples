@@ -34,4 +34,3 @@ spec:
   owner: team-quotecore
   system: pricing-system-topic
   dependsOn: ['resource:quote-service-db']
-  apiConsumedBy: ['component:www-artist']
