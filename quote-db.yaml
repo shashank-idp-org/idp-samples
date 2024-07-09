@@ -6,4 +6,4 @@ metadata:
 spec:
   type: database
   owner: team-quotedb
-  system: artist-engagement-portal
+  system: pricing-system-topic
