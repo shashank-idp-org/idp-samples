@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: development-system-topic
+  description: Everything related to development systems
+spec:
+  owner: team-development
+  domain: capital-topic
