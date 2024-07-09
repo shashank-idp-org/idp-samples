@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: quote-service-db
+  description: Stores quote service details
+spec:
+  type: database
+  owner: team-quotedb
+  system: artist-engagement-portal
