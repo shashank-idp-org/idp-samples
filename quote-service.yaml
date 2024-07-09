@@ -34,3 +34,5 @@ spec:
   owner: team-quotecore
   system: pricing-system-topic
   dependsOn: ['resource:quote-service-db']
+  providesApis:
+    - quote-service-api
