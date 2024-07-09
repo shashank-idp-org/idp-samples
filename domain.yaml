@@ -5,6 +5,7 @@ metadata:
   description: This is a domain design
 spec:
   owner: David
+  lifecycle: production
   dependsOn:
     - system: Commercial
     - system: Development
