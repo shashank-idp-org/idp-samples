@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: capital-topic
+  description: This is a v1 domain design
+spec:
+  owner: David
+  system: Engineering
+  
