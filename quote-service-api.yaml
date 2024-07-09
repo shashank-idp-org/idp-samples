@@ -18,5 +18,5 @@ spec:
   lifecycle: experimental
   owner: team-quoteservice-api
   definition:
-    text: API details
+    text: "API details"
   
