@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: commercial-system-topic
+  description: Everything related to commercial systems
+spec:
+  owner: team-commercial
+  domain: capital-topic
