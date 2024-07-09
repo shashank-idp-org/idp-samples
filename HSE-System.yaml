@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: hse-system-topic
+  description: Everything related to hse system
+spec:
+  owner: team-hse
+  domain: capital-topic
