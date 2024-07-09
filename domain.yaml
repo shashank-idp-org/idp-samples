@@ -6,8 +6,3 @@ metadata:
 spec:
   owner: David
   lifecycle: production
-  dependsOn:
-    - system: Commercial
-    - system: Development
-    - system: Engineering
-    - system: HSE
