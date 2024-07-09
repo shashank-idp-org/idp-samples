@@ -4,7 +4,7 @@ metadata:
   name: engineering-topic-subdomain
   description: This is a subdomain of engineering
 spec:
-  owner: David
+  owner: Shashank
   lifecycle: production
   subdomainOf: capital-domain
   
