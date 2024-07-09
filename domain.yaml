@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Domain
 metadata:
-  name: Capital_Topic
+  name: capital-topic
   description: This is a domain design
 spec:
   owner: David
