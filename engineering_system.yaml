@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
   name: engineering-system-topic
-  description: Everything related to engineering
+  description: Everything related to engineering system
 spec:
-  owner: team-a
+  owner: team-engineering
   domain: capital-topic
