@@ -5,7 +5,7 @@ metadata:
   description: This is a domain design
 spec:
   owner: David
-  hasParts:
+  dependsOn:
     - system: Commercial
     - system: Development
     - system: Engineering
